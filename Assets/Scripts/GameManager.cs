@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public bool podeMover;
     public bool conversaAtiva;
 
+    [SerializeField] Animator papel;
     
 
 
@@ -60,6 +62,10 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void Animaçao()
+    {
+        papel.SetTrigger("Ativar");
+    }
 
 
     protected void Start()
