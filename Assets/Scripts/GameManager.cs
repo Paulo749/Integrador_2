@@ -17,18 +17,25 @@ public class GameManager : MonoBehaviour
     public bool podeMover;
     public bool conversaAtiva;
 
+    public int historia;
+
     [SerializeField] Animator papel;
     
 
 
     public static GameManager instance;
 
-    
 
+    public void AtivaMov()
+    {
+        conversaAtiva = false;
+        podeMover = true;
+    }
 
     private void Awake()
     {
         instance = this;
+        historia = 0;
     }
 
     protected void Update()
@@ -61,22 +68,24 @@ public class GameManager : MonoBehaviour
     {
 
     }
-
-    void Animaçao()
+    #region animaçao
+    public void LevantaPapel()
     {
         papel.SetTrigger("Ativar");
+        //papel.SetBool("Levantado", true);
     }
 
+    public void AbaixaPapel()
+    {
+        papel.SetTrigger("Desativar");
+        //papel.SetBool("Levantado", false);
+    }
+    #endregion
 
     protected void Start()
     {
         podeMover = true;
         mapa.SetActive(false);
-    }
-
-    public void AtivaMov()
-    {
-        podeMover = true;
     }
 
     protected void Mapa()
@@ -105,7 +114,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) && historia > 0)
         {
             if (mapa.activeSelf == true)
             {

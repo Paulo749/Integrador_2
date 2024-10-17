@@ -7,10 +7,17 @@ public class NPC : MonoBehaviour
 {
     public NPCConversation minhaConversa;
     public BoxCollider2D boxCollider;
-    
+    [SerializeField]protected GameObject conversa;
 
-    
-    
+
+
+    private void Start()
+    {
+        if (conversa.CompareTag("ConversaInicial"))
+        {
+            ConversationManager.Instance.StartConversation(minhaConversa);
+        }
+    }
 
 
     protected void OnMouseOver()
@@ -33,8 +40,11 @@ public class NPC : MonoBehaviour
     public void LigaHitBox()
     {
         boxCollider.enabled = true;
-        GameManager.instance.conversaAtiva = false;
+        
+
     } 
+
+    
 
    
 
