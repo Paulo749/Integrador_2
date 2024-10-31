@@ -12,7 +12,7 @@ public class Papel : MonoBehaviour
         TextoAtivo();
     }
 
-    private void OnMouseExit()
+    private void OnMouseDown()
     {
         GameManager.instance.AbaixaPapel();
 

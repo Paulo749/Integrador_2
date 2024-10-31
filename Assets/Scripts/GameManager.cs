@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
         historia = 0;
     }
 
+    public void AvançaHist()
+    {
+        historia++;
+    }
+
     protected void Update()
     {
         Mapa();
