@@ -5,6 +5,7 @@ using DialogueEditor;
 
 public class NPC : MonoBehaviour
 {
+    public NPCConversation minhaConversaDefault;
     public NPCConversation minhaConversa;
     public NPCConversation minhaConversa2;
     public NPCConversation minhaConversa3;
@@ -36,10 +37,11 @@ public class NPC : MonoBehaviour
                 case 1:
                     ConversationManager.Instance.StartConversation(minhaConversa2);
                     break;
-
-                default:
-                    /*GameManager.instance.historia = 0;
-                    ConversationManager.Instance.StartConversation(minhaConversa);*/
+                case 2:
+                    ConversationManager.Instance.StartConversation(minhaConversa2);
+                    break;
+                default:                                    
+                    ConversationManager.Instance.StartConversation(minhaConversaDefault);              
                     break;
             }
             
