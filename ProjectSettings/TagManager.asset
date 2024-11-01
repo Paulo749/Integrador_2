@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - ConversaInicial
+  - Objetivo
   layers:
   - Default
   - TransparentFX
