@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource papel;
     public AudioSource pegandoObj;
+    public AudioSource zaWarudo;
     
 
 

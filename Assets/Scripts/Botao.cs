@@ -25,6 +25,11 @@ public class Botao : MonoBehaviour
             liberar.SetActive(true);
             //GameManager.instance.AvançaHist();
         }
+        else if (gameObject.CompareTag("Certa"))
+        {
+            Questoes.instance.AddAcerto();
+            Questoes.instance.MudaQuestao();
+        }
         
 
 
