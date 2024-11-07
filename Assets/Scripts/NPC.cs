@@ -5,11 +5,11 @@ using DialogueEditor;
 
 public class NPC : MonoBehaviour
 {
-    public NPCConversation minhaConversaDefault;
+    //public NPCConversation minhaConversaDefault;
+    //public NPCConversation minhaConversa2;
+    //public NPCConversation minhaConversa3;
+    //public NPCConversation minhaConversa4;
     public NPCConversation minhaConversa;
-    public NPCConversation minhaConversa2;
-    public NPCConversation minhaConversa3;
-    public NPCConversation minhaConversa4;
     public BoxCollider2D boxCollider;
     [SerializeField]protected GameObject conversa;
 
@@ -20,7 +20,9 @@ public class NPC : MonoBehaviour
         if (conversa.CompareTag("ConversaInicial"))
         {
             ConversationManager.Instance.StartConversation(minhaConversa);
+            
         }
+        
     }
 
 
@@ -29,7 +31,8 @@ public class NPC : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) && GameManager.instance.conversaAtiva == false)
         {
-            switch (GameManager.instance.historia)
+            ConversationManager.Instance.StartConversation(minhaConversa);
+            /*switch (GameManager.instance.historia)
             {
                 case 0:
                     ConversationManager.Instance.StartConversation(minhaConversa);
@@ -43,7 +46,7 @@ public class NPC : MonoBehaviour
                 default:                                    
                     ConversationManager.Instance.StartConversation(minhaConversaDefault);              
                     break;
-            }
+            }*/
             
             boxCollider.enabled = false;
             GameManager.instance.podeMover = false;

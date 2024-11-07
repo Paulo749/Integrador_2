@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     {
         historia++;
     }
+    
 
     protected void Update()
     {
