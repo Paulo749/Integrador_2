@@ -49,22 +49,22 @@ public class Questoes : MonoBehaviour
     public void AddAcerto()
     {
         acertos++;
-        if (questoes[10]) 
-        {
-            VerificaAcertos();
-        }
+        
     }
 
     public void MudaQuestao()
     {
-        
-        
-        questoes[questaoAtual].SetActive(true);
-        questoes[questaoAtual - 1].SetActive(false);
-        questaoAtual++;
-        
-
-
+        if (questaoAtual == 9)
+        {
+            VerificaAcertos();
+            questoes[questaoAtual].SetActive(false);
+        }
+        else
+        {
+            questaoAtual++;
+            questoes[questaoAtual].SetActive(true);
+            questoes[questaoAtual - 1].SetActive(false);
+        }
 
     }
 

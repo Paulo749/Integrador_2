@@ -15,25 +15,33 @@ public class Efeitos : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (GameManager.instance.mapaAberto == false)
+        if (!PauseManager.instance.gamePausado)
         {
-            Encima();
-            AtivaContraste();
+            if (GameManager.instance.mapaAberto == false)
+            {
+                Encima();
+                AtivaContraste();
+            }
+            else if (GameManager.instance.mapaAberto == true)
+            {
+                Fora();
+            }
         }
-        else if (GameManager.instance.mapaAberto == true)
-        {
-            Fora();
-        }
+        
 
     }
 
     private void OnMouseExit()
     {
-        if (GameManager.instance.mapaAberto == false)
+        if (!PauseManager.instance.gamePausado) 
         {
-            DesativaContraste();
-            Fora();
+            if (GameManager.instance.mapaAberto == false)
+            {
+                DesativaContraste();
+                Fora();
+            }
         }
+        
     }
 
     void Fora()

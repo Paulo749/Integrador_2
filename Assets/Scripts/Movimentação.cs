@@ -24,48 +24,63 @@ public class Movimentação : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (GameManager.instance.conversaAtiva == false) 
+        if (!PauseManager.instance.gamePausado)
         {
-            imagem.enabled = false;
+            if (GameManager.instance.conversaAtiva == false)
+            {
+                imagem.enabled = false;
+            }
         }
+        
         
     }
     private void OnMouseEnter()
     {
-        if (GameManager.instance.conversaAtiva == false)
+        if (!PauseManager.instance.gamePausado)
         {
-            imagem.enabled = true;
+            if (GameManager.instance.conversaAtiva == false)
+            {
+                imagem.enabled = true;
+            }
         }
+        
     }
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (!PauseManager.instance.gamePausado)
         {
-            MudaCena();
-            
+            if (Input.GetMouseButtonDown(0))
+            {
+                MudaCena();
+
+            }
         }
+           
     }
 
 
 
     public void MudaCena()
     {
-        
-        
 
-        if(GameManager.instance.podeMover == true)
+
+        if (!PauseManager.instance.gamePausado)
         {
+            if (GameManager.instance.podeMover == true)
+            {
 
-            cenaAtual.SetActive(false);
-            cenaAlvo.SetActive(true);            
-            //botoesAtuais[].SetActive(false);
-            //botoesNovos[].SetActive(true);
-                
-            
-            imagem.enabled = false;
+                cenaAtual.SetActive(false);
+                cenaAlvo.SetActive(true);
+                //botoesAtuais[].SetActive(false);
+                //botoesNovos[].SetActive(true);
 
+
+                imagem.enabled = false;
+
+            }
         }
+       
         
 
 

@@ -28,32 +28,35 @@ public class NPC : MonoBehaviour
 
     protected void OnMouseOver()
     {
-        
-        if (Input.GetMouseButtonDown(0) && GameManager.instance.conversaAtiva == false)
+        if (!PauseManager.instance.gamePausado)
         {
-            ConversationManager.Instance.StartConversation(minhaConversa);
-            /*switch (GameManager.instance.historia)
+            if (Input.GetMouseButtonDown(0) && GameManager.instance.conversaAtiva == false)
             {
-                case 0:
-                    ConversationManager.Instance.StartConversation(minhaConversa);
-                    break;
-                case 1:
-                    ConversationManager.Instance.StartConversation(minhaConversa2);
-                    break;
-                case 2:
-                    ConversationManager.Instance.StartConversation(minhaConversa2);
-                    break;
-                default:                                    
-                    ConversationManager.Instance.StartConversation(minhaConversaDefault);              
-                    break;
-            }*/
-            
-            boxCollider.enabled = false;
-            GameManager.instance.podeMover = false;
-            GameManager.instance.conversaAtiva = true;
-            
-            
-        }
+                ConversationManager.Instance.StartConversation(minhaConversa);
+                /*switch (GameManager.instance.historia)
+                {
+                    case 0:
+                        ConversationManager.Instance.StartConversation(minhaConversa);
+                        break;
+                    case 1:
+                        ConversationManager.Instance.StartConversation(minhaConversa2);
+                        break;
+                    case 2:
+                        ConversationManager.Instance.StartConversation(minhaConversa2);
+                        break;
+                    default:                                    
+                        ConversationManager.Instance.StartConversation(minhaConversaDefault);              
+                        break;
+                }*/
+
+                boxCollider.enabled = false;
+                GameManager.instance.podeMover = false;
+                GameManager.instance.conversaAtiva = true;
+
+                
+            }
+        }   
+        
 
         
 

@@ -8,6 +8,8 @@ TagManager:
   - ConversaInicial
   - Objetivo
   - Certa
+  - Constroi
+  - Errada
   layers:
   - Default
   - TransparentFX

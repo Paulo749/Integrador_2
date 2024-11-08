@@ -119,28 +119,31 @@ public class GameManager : MonoBehaviour
 
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.M) && historia > 0)
+        if (!PauseManager.instance.gamePausado)
         {
-            if (mapa.activeSelf == true)
+            if (Input.GetKeyDown(KeyCode.M) && historia > 0)
             {
-                mapa.SetActive(false);
-                podeMover = true;
-                mapaAberto = false;
-                
-                
+                if (mapa.activeSelf == true)
+                {
+                    mapa.SetActive(false);
+                    podeMover = true;
+                    mapaAberto = false;
+
+
+
+                }
+                else if (mapa.activeSelf == false)
+                {
+                    mapa.SetActive(true);
+                    podeMover = false;
+                    mapaAberto = true;
+
+
+                }
 
             }
-            else if (mapa.activeSelf == false)
-            {
-                mapa.SetActive(true);
-                podeMover = false;
-                mapaAberto = true;
-                
-
-            }
-
         }
+        
     }
 
     

@@ -8,28 +8,39 @@ public class Botao : MonoBehaviour
 {
     [SerializeField] GameObject obj;
     [SerializeField] GameObject liberar;
+    [SerializeField] Animator anim;
     
 
     
 
     private void OnMouseDown()
     {
-        if (!gameObject.CompareTag("Objetivo"))
+        if (!PauseManager.instance.gamePausado)
         {
-            obj.SetActive(true);
-            gameObject.SetActive(false);
+            if (gameObject.CompareTag("Constroi"))
+            {
+                obj.SetActive(true);
+                gameObject.SetActive(false);
+
+            }
+            else if (gameObject.CompareTag("Objetivo"))
+            {
+                obj.SetActive(false);
+                liberar.SetActive(true);
+                anim.SetTrigger("Glow");
+                //GameManager.instance.AvançaHist();
+            }
+            else if (gameObject.CompareTag("Certa"))
+            {
+                Questoes.instance.AddAcerto();
+                Questoes.instance.MudaQuestao();
+            }
+            else if (!gameObject.CompareTag("Certa"))
+            {
+                Questoes.instance.MudaQuestao();
+            }
         }
-        else if (gameObject.CompareTag("Objetivo"))
-        {
-            obj.SetActive(false);
-            liberar.SetActive(true);
-            //GameManager.instance.AvançaHist();
-        }
-        else if (gameObject.CompareTag("Certa"))
-        {
-            Questoes.instance.AddAcerto();
-            Questoes.instance.MudaQuestao();
-        }
+        
         
 
 
